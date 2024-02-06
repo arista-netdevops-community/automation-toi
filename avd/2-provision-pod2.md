@@ -18,7 +18,7 @@ At the end of this lab, `POD1` and `POD2` will be 2 separate EVPN domains: all l
 
     <details close>
     <summary>Solution: Don't cheat, use your brain and RTFM</summary>
-        One possible solution is accessible [here](https://github.com/arista-netdevops-community/avd-toi/blob/solution/group_vars/POD2.yml).
+        One possible solution is accessible  <a href="https://github.com/arista-netdevops-community/avd-toi/blob/solution/group_vars/POD2.yml">here</a>.
     </details>
 
 4. Run the playbook `build.yml` with the command `ansible-playbook build.yml`. Verify the configurations in `intended/configs`.
