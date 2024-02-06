@@ -2,7 +2,7 @@
 
 ### Description
 
-In this lab, Arista Validated Design to generate `POD1` underlay and overlay configuration and CloudVision to deploy it.
+In this lab, we will use Arista Validated Design (AVD) to generate `POD1` underlay and overlay configuration and CloudVision to deploy it.
 This is meant to be a first contact with AVD, no `eos_designs` variables or `eos_cli_config_gen` variables to create.
 At the end of this lab, `POD1` will be a single EVPN domain.
 
