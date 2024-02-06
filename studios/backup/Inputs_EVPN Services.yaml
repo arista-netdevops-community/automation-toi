@@ -1,0 +1,120 @@
+path: []
+inputs:
+  tenants:
+    - evpnMulticast: {}
+      macVrfVniBase: 10000
+      name: Tenant-A
+      vlanAwareBundles: []
+      vlans:
+        - arp: {}
+          dhcpServerDetails: []
+          eTreeDetails: {}
+          eTreeRootSwitches: []
+          eosCli: []
+          evpnMulticast: {}
+          l3OrL2: false
+          mtu: 9214
+          name: L2_Stretched_POD1-POD2
+          nodes: []
+          overrideVariables: {}
+          sviIpAddresses: {}
+          switches:
+            - inputs:
+                switch:
+                  hostname:
+                    - inputs:
+                        apply: true
+                      tags:
+                        query: device:s1-brdr1
+                    - inputs:
+                        apply: true
+                      tags:
+                        query: device:s1-brdr2
+                    - inputs:
+                        apply: true
+                      tags:
+                        query: device:s1-leaf1
+                    - inputs:
+                        apply: true
+                      tags:
+                        query: device:s1-leaf2
+                    - inputs:
+                        apply: true
+                      tags:
+                        query: device:s1-leaf3
+                    - inputs:
+                        apply: true
+                      tags:
+                        query: device:s1-leaf4
+                    - inputs:
+                        apply: true
+                      tags:
+                        query: device:s2-brdr1
+                    - inputs:
+                        apply: true
+                      tags:
+                        query: device:s2-brdr2
+                    - inputs:
+                        apply: true
+                      tags:
+                        query: device:s2-leaf1
+                    - inputs:
+                        apply: true
+                      tags:
+                        query: device:s2-leaf2
+                    - inputs:
+                        apply: true
+                      tags:
+                        query: device:s2-leaf3
+                    - inputs:
+                        apply: true
+                      tags:
+                        query: device:s2-leaf4
+              tags:
+                query: 'Role:Leaf AND ( DC-Pod:POD1 OR DC-Pod:POD2 ) '
+          vlanId: 112
+          vrf: null
+          vxlan: true
+        - arp: {}
+          dhcpServerDetails: []
+          eTreeDetails: {}
+          eTreeRootSwitches: []
+          eosCli: []
+          evpnMulticast: {}
+          l3OrL2: false
+          mtu: 9214
+          name: L2_Intra_POD1
+          nodes: []
+          overrideVariables: {}
+          sviIpAddresses: {}
+          switches:
+            - inputs:
+                switch:
+                  hostname: []
+              tags:
+                query: Role:Leaf AND  DC-Pod:POD1
+          vlanId: 134
+          vrf: null
+          vxlan: true
+        - arp: {}
+          dhcpServerDetails: []
+          eTreeDetails: {}
+          eTreeRootSwitches: []
+          eosCli: []
+          evpnMulticast: {}
+          l3OrL2: false
+          mtu: 9214
+          name: L2_Intra_POD2
+          nodes: []
+          overrideVariables: {}
+          sviIpAddresses: {}
+          switches:
+            - inputs:
+                switch:
+                  hostname: []
+              tags:
+                query: Role:Leaf AND  DC-Pod:POD2
+          vlanId: 234
+          vrf: null
+          vxlan: true
+      vrfs: []

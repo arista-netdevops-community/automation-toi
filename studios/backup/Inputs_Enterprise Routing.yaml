@@ -1,0 +1,204 @@
+path: []
+inputs:
+  pods:
+    - inputs:
+        pod:
+          commonBGPConfig: {}
+          commonMlagConfig: {}
+          coreRouters: []
+          enableOverlay: false
+          erDomains:
+            - inputs:
+                erDomain:
+                  bgpDefaults:
+                    bgpSettings:
+                      bgpDefaultsCli:
+                        - neighbor IPv4-DCI-PEERS maximum-routes 12000
+                        - neighbor IPv4-DCI-PEERS send-community
+                  communityLists: []
+                  erDetails:
+                    - inputs:
+                        erLinkDetails:
+                          eBgNeighbors:
+                            - description: null
+                              neighborIp: 172.16.2.7
+                              peerAsn: 65203
+                              peerGroup: EVPN-DCI-PEERS
+                              vrf: null
+                          erneighbors:
+                            - inputs:
+                                erneighborDetails:
+                                  description: P2P_LINK_TO_s2-brdr1_Ethernet4
+                                  erAsn: 65203
+                                  erIpv6Address: null
+                                  erIpv6SubnetMask: 127
+                                  eripAddress: 10.255.0.0
+                                  erspeed: null
+                                  ersubnetMask: 31
+                                  ipUnnumbered: false
+                              tags:
+                                query: interface:Ethernet4@s1-brdr1
+                      tags:
+                        query: device:s1-brdr1
+                    - inputs:
+                        erLinkDetails:
+                          eBgNeighbors:
+                            - description: null
+                              neighborIp: 172.16.2.8
+                              peerAsn: 65203
+                              peerGroup: EVPN-DCI-PEERS
+                              vrf: null
+                          erneighbors:
+                            - inputs:
+                                erneighborDetails:
+                                  description: P2P_LINK_TO_s1-brdr2_Ethernet5
+                                  erAsn: 65203
+                                  erIpv6Address: null
+                                  erIpv6SubnetMask: 127
+                                  eripAddress: 10.255.0.2
+                                  erspeed: null
+                                  ersubnetMask: 31
+                                  ipUnnumbered: false
+                              tags:
+                                query: interface:Ethernet5@s1-brdr2
+                      tags:
+                        query: device:s1-brdr2
+                  igpAndBgpRedistribution:
+                    redistribution:
+                      bgpSettings:
+                        iPv4: true
+                        iPv6: false
+                        redistributeConnected: false
+                        redistributeIgp: true
+                        redistributeStatic: false
+                      bgpToIgpRouteMapName: null
+                  peerGroups:
+                    - RedistributionRouteMap: []
+                      asnSettings: {}
+                      bgpOptions:
+                        bfd: true
+                        bgpDefaultInformationOriginate: Disabled
+                        eBgpMultiHopTtl: 3
+                        maximumAcceptedRoutes: '0'
+                        nextHop: Unchanged
+                        ospfDefaultInformationOriginate: Disabled
+                        redistributeConnectedRoutes: false
+                        redistributeRoutes: false
+                        redistributeStaticRoutes: false
+                        updateSource: Loopback0
+                      dciOptions: {}
+                      description: null
+                      eBgpAuthKey: null
+                      erAddressFamily: null
+                      erMsAddressFamily:
+                        - addressFamily: evpn
+                      listenRange: []
+                      peerGroupCliInput: []
+                      peerGroupName: EVPN-DCI-PEERS
+                      routeMapIn: []
+                      routeMapInName: null
+                      routeMapOut: []
+                      routeMapOutName: null
+                  prefixLists: []
+                  rrHostnames: []
+              tags:
+                query: Edge-Router-Domain:POD1
+            - inputs:
+                erDomain:
+                  bgpDefaults:
+                    bgpSettings:
+                      bgpDefaultSettings:
+                        bgpDistance: 20 200 200
+                        noBgpDefaultIPv4Unicast: false
+                      bgpDefaultsCli:
+                        - neighbor IPv4-DCI-PEERS maximum-routes 12000
+                        - neighbor IPv4-DCI-PEERS send-community
+                  communityLists: []
+                  erDetails:
+                    - inputs:
+                        erLinkDetails:
+                          eBgNeighbors:
+                            - description: null
+                              neighborIp: 172.16.1.7
+                              peerAsn: 65103
+                              peerGroup: EVPN-DCI-PEERS
+                              vrf: null
+                          erneighbors:
+                            - inputs:
+                                erneighborDetails:
+                                  description: P2P_LINK_TO_s1-brdr1_Ethernet4
+                                  erAsn: 65103
+                                  erIpv6Address: null
+                                  erIpv6SubnetMask: 127
+                                  eripAddress: 10.255.0.1
+                                  erspeed: null
+                                  ersubnetMask: 31
+                                  ipUnnumbered: false
+                              tags:
+                                query: interface:Ethernet4@s2-brdr1
+                      tags:
+                        query: device:s2-brdr1
+                    - inputs:
+                        erLinkDetails:
+                          eBgNeighbors:
+                            - description: null
+                              neighborIp: 172.16.1.8
+                              peerAsn: 65103
+                              peerGroup: EVPN-DCI-PEERS
+                              vrf: null
+                          erneighbors:
+                            - inputs:
+                                erneighborDetails:
+                                  description: P2P_LINK_TO_s2-brdr2_Ethernet5
+                                  erAsn: 65103
+                                  erIpv6Address: null
+                                  erIpv6SubnetMask: 127
+                                  eripAddress: 10.255.0.3
+                                  erspeed: null
+                                  ersubnetMask: 31
+                                  ipUnnumbered: false
+                              tags:
+                                query: interface:Ethernet5@s2-brdr2
+                      tags:
+                        query: device:s2-brdr2
+                  igpAndBgpRedistribution: {}
+                  peerGroups:
+                    - RedistributionRouteMap: []
+                      asnSettings: {}
+                      bgpOptions:
+                        bfd: true
+                        bgpDefaultInformationOriginate: Disabled
+                        eBgpMultiHopTtl: 3
+                        maximumAcceptedRoutes: '0'
+                        nextHop: Unconfigured
+                        ospfDefaultInformationOriginate: Disabled
+                        redistributeConnectedRoutes: false
+                        redistributeRoutes: false
+                        redistributeStaticRoutes: false
+                        updateSource: Loopback0
+                      dciOptions: {}
+                      description: null
+                      eBgpAuthKey: null
+                      erAddressFamily: null
+                      erMsAddressFamily:
+                        - addressFamily: evpn
+                      listenRange: []
+                      peerGroupCliInput: []
+                      peerGroupName: EVPN-DCI-PEERS
+                      routeMapIn: []
+                      routeMapInName: null
+                      routeMapOut: []
+                      routeMapOutName: null
+                  prefixLists: []
+                  rrHostnames: []
+              tags:
+                query: Edge-Router-Domain:POD6
+          rrs: []
+          underlayRoutingGroup:
+            bgpPeerGroupName: IPv4-DCI-PEERS
+            igp: BGP
+            igpProcessId: 1
+            redistributeConnected: false
+            redistributeStatic: false
+      tags:
+        query: Network:Datacenter1-POD1_POD2

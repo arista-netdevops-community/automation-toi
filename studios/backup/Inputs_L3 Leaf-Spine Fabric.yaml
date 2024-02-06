@@ -1,0 +1,111 @@
+path: []
+inputs:
+  dataCenters:
+    - inputs:
+        dataCenter:
+          fabricSettings: {}
+          platformSettingsResolver: []
+          pods:
+            - inputs:
+                pod:
+                  LeafDomains:
+                    - inputs:
+                        l3LeafDomain:
+                          l3LeafMlag: true
+                      tags:
+                        query: Leaf-Domain:101
+                    - inputs:
+                        l3LeafDomain:
+                          l3LeafMlag: true
+                      tags:
+                        query: Leaf-Domain:102
+                    - inputs:
+                        l3LeafDomain:
+                          l3LeafMlag: true
+                      tags:
+                        query: Leaf-Domain:103
+                  commonBGPConfig:
+                    evpnEnabled: true
+                    evpnMulticast: false
+                    evpnRtMembership: false
+                    leafAsnRange: 65001-65535
+                    leafLoopback0Subnet: 172.16.1.0/24
+                    spineAsn: '65100'
+                    spineBGPDynamicNeighbors: false
+                    spineLoopback0Subnet: 172.16.1.0/24
+                  commonMlagConfig:
+                    lacpMode: active
+                    mlagPeerLinkSubnet: 169.254.0.0/31
+                    mlagPortChannelId: 2000
+                    mlagSubnetMask: 31
+                    mlagVlan: 4094
+                    virtualRouterMacAddress: 00:1c:73:00:00:99
+                  l2LeafDomains: []
+                  maximums: {}
+                  ospfConfiguration: {}
+                  overlayDetails:
+                    leafLoopback1Subnet: 172.16.100.0/24
+                    vxlanOverlay: true
+                  spanningTreeMode: MSTP
+                  underlayRouting:
+                    spineSuperSpineFabricSubnet: 172.15.200.0/24
+                    spineSuperSpineFabricSubnetMask: 31
+                    underlayFabricSubnet: 10.0.0.0/24
+                    underlayFabricSubnetMask: '31'
+                    underlayMulticast: false
+                    underlayRoutingProtocol: BGP
+              tags:
+                query: DC-Pod:POD1
+            - inputs:
+                pod:
+                  LeafDomains:
+                    - inputs:
+                        l3LeafDomain:
+                          l3LeafMlag: true
+                      tags:
+                        query: Leaf-Domain:201
+                    - inputs:
+                        l3LeafDomain:
+                          l3LeafMlag: true
+                      tags:
+                        query: Leaf-Domain:202
+                    - inputs:
+                        l3LeafDomain:
+                          l3LeafMlag: true
+                      tags:
+                        query: Leaf-Domain:203
+                  commonBGPConfig:
+                    evpnEnabled: true
+                    evpnMulticast: false
+                    evpnRtMembership: false
+                    leafAsnRange: 65001-65535
+                    leafLoopback0Subnet: 172.16.2.0/24
+                    spineAsn: '65200'
+                    spineBGPDynamicNeighbors: false
+                    spineLoopback0Subnet: 172.16.2.0/24
+                  commonMlagConfig:
+                    lacpMode: active
+                    mlagPeerLinkSubnet: 169.254.0.0/31
+                    mlagPortChannelId: 2000
+                    mlagSubnetMask: 31
+                    mlagVlan: 4094
+                    virtualRouterMacAddress: 00:1c:73:00:00:99
+                  l2LeafDomains: []
+                  maximums: {}
+                  ospfConfiguration: {}
+                  overlayDetails:
+                    leafLoopback1Subnet: 172.16.200.0/24
+                    vxlanOverlay: true
+                  spanningTreeMode: MSTP
+                  underlayRouting:
+                    spineSuperSpineFabricSubnet: 172.15.200.0/24
+                    spineSuperSpineFabricSubnetMask: 31
+                    underlayFabricSubnet: 10.0.0.0/24
+                    underlayFabricSubnetMask: '31'
+                    underlayMulticast: false
+                    underlayRoutingProtocol: BGP
+              tags:
+                query: DC-Pod:POD2
+          superSpinePlanes: []
+      tags:
+        query: DC:Datacenter1

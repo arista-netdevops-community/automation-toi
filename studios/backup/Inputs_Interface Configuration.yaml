@@ -1,0 +1,308 @@
+path: []
+inputs:
+  devices:
+    - inputs:
+        interface: []
+      tags:
+        query: device:s1-brdr1
+    - inputs:
+        interface: []
+      tags:
+        query: device:s1-brdr2
+    - inputs:
+        interface:
+          - inputs:
+              intfConfig: {}
+            tags:
+              query: interface:Ethernet1@s1-leaf1
+          - inputs:
+              intfConfig: {}
+            tags:
+              query: interface:Ethernet2@s1-leaf1
+          - inputs:
+              intfConfig: {}
+            tags:
+              query: interface:Ethernet3@s1-leaf1
+          - inputs:
+              intfConfig:
+                description: s1-host1
+                enabled: true
+                profile: Host POD1
+            tags:
+              query: interface:Ethernet4@s1-leaf1
+          - inputs:
+              intfConfig: {}
+            tags:
+              query: interface:Ethernet6@s1-leaf1
+          - inputs:
+              intfConfig: {}
+            tags:
+              query: interface:Management0@s1-leaf1
+      tags:
+        query: device:s1-leaf1
+    - inputs:
+        interface:
+          - inputs:
+              intfConfig: {}
+            tags:
+              query: interface:Ethernet1@s1-leaf2
+          - inputs:
+              intfConfig: {}
+            tags:
+              query: interface:Ethernet2@s1-leaf2
+          - inputs:
+              intfConfig: {}
+            tags:
+              query: interface:Ethernet3@s1-leaf2
+          - inputs:
+              intfConfig:
+                description: s1-host1
+                enabled: true
+                profile: Host POD1
+            tags:
+              query: interface:Ethernet4@s1-leaf2
+          - inputs:
+              intfConfig: {}
+            tags:
+              query: interface:Ethernet6@s1-leaf2
+          - inputs:
+              intfConfig: {}
+            tags:
+              query: interface:Management0@s1-leaf2
+      tags:
+        query: device:s1-leaf2
+    - inputs:
+        interface:
+          - inputs:
+              intfConfig: {}
+            tags:
+              query: interface:Ethernet1@s1-leaf3
+          - inputs:
+              intfConfig: {}
+            tags:
+              query: interface:Ethernet2@s1-leaf3
+          - inputs:
+              intfConfig: {}
+            tags:
+              query: interface:Ethernet3@s1-leaf3
+          - inputs:
+              intfConfig:
+                description: s1-host2
+                enabled: true
+                profile: Host POD1
+            tags:
+              query: interface:Ethernet4@s1-leaf3
+          - inputs:
+              intfConfig: {}
+            tags:
+              query: interface:Ethernet6@s1-leaf3
+          - inputs:
+              intfConfig: {}
+            tags:
+              query: interface:Management0@s1-leaf3
+      tags:
+        query: device:s1-leaf3
+    - inputs:
+        interface:
+          - inputs:
+              intfConfig: {}
+            tags:
+              query: interface:Ethernet1@s1-leaf4
+          - inputs:
+              intfConfig: {}
+            tags:
+              query: interface:Ethernet2@s1-leaf4
+          - inputs:
+              intfConfig: {}
+            tags:
+              query: interface:Ethernet3@s1-leaf4
+          - inputs:
+              intfConfig:
+                description: s1-host2
+                enabled: true
+                profile: Host POD1
+            tags:
+              query: interface:Ethernet4@s1-leaf4
+          - inputs:
+              intfConfig: {}
+            tags:
+              query: interface:Ethernet6@s1-leaf4
+          - inputs:
+              intfConfig: {}
+            tags:
+              query: interface:Management0@s1-leaf4
+      tags:
+        query: device:s1-leaf4
+    - inputs:
+        interface: []
+      tags:
+        query: device:s2-brdr1
+    - inputs:
+        interface: []
+      tags:
+        query: device:s2-brdr2
+    - inputs:
+        interface:
+          - inputs:
+              intfConfig: {}
+            tags:
+              query: interface:Ethernet1@s2-leaf1
+          - inputs:
+              intfConfig: {}
+            tags:
+              query: interface:Ethernet2@s2-leaf1
+          - inputs:
+              intfConfig: {}
+            tags:
+              query: interface:Ethernet3@s2-leaf1
+          - inputs:
+              intfConfig:
+                description: s2-host1
+                enabled: true
+                profile: Host POD1
+            tags:
+              query: interface:Ethernet4@s2-leaf1
+          - inputs:
+              intfConfig: {}
+            tags:
+              query: interface:Ethernet6@s2-leaf1
+          - inputs:
+              intfConfig: {}
+            tags:
+              query: interface:Management0@s2-leaf1
+      tags:
+        query: device:s2-leaf1
+    - inputs:
+        interface:
+          - inputs:
+              intfConfig: {}
+            tags:
+              query: interface:Ethernet1@s2-leaf2
+          - inputs:
+              intfConfig: {}
+            tags:
+              query: interface:Ethernet2@s2-leaf2
+          - inputs:
+              intfConfig: {}
+            tags:
+              query: interface:Ethernet3@s2-leaf2
+          - inputs:
+              intfConfig:
+                description: s2-host1
+                enabled: true
+                profile: Host POD1
+            tags:
+              query: interface:Ethernet4@s2-leaf2
+          - inputs:
+              intfConfig: {}
+            tags:
+              query: interface:Ethernet6@s2-leaf2
+          - inputs:
+              intfConfig: {}
+            tags:
+              query: interface:Management0@s2-leaf2
+      tags:
+        query: device:s2-leaf2
+    - inputs:
+        interface:
+          - inputs:
+              intfConfig: {}
+            tags:
+              query: interface:Ethernet1@s2-leaf3
+          - inputs:
+              intfConfig: {}
+            tags:
+              query: interface:Ethernet2@s2-leaf3
+          - inputs:
+              intfConfig: {}
+            tags:
+              query: interface:Ethernet3@s2-leaf3
+          - inputs:
+              intfConfig:
+                description: s2-host2
+                enabled: true
+                profile: Host POD1
+            tags:
+              query: interface:Ethernet4@s2-leaf3
+          - inputs:
+              intfConfig: {}
+            tags:
+              query: interface:Ethernet6@s2-leaf3
+          - inputs:
+              intfConfig: {}
+            tags:
+              query: interface:Management0@s2-leaf3
+      tags:
+        query: device:s2-leaf3
+    - inputs:
+        interface:
+          - inputs:
+              intfConfig: {}
+            tags:
+              query: interface:Ethernet1@s2-leaf4
+          - inputs:
+              intfConfig: {}
+            tags:
+              query: interface:Ethernet2@s2-leaf4
+          - inputs:
+              intfConfig: {}
+            tags:
+              query: interface:Ethernet3@s2-leaf4
+          - inputs:
+              intfConfig:
+                description: s2-host2
+                enabled: true
+                profile: Host POD1
+            tags:
+              query: interface:Ethernet4@s2-leaf4
+          - inputs:
+              intfConfig: {}
+            tags:
+              query: interface:Ethernet6@s2-leaf4
+          - inputs:
+              intfConfig: {}
+            tags:
+              query: interface:Management0@s2-leaf4
+      tags:
+        query: device:s2-leaf4
+    - inputs:
+        interface: []
+      tags:
+        query: device:s1-spine1
+    - inputs:
+        interface: []
+      tags:
+        query: device:s1-spine2
+    - inputs:
+        interface: []
+      tags:
+        query: device:s2-spine1
+    - inputs:
+        interface: []
+      tags:
+        query: device:s2-spine2
+  profiles:
+    - allowedVlans: 112,134
+      channelGroup: 1
+      ipaddress: null
+      lacpEnabled: true
+      mlagEnabled: true
+      mode: trunk
+      name: Host POD1
+      nativeVlanId: 1
+      phoneVlanId: 1
+      portFastEnabled: true
+      profileDescription: $1
+      speed: null
+    - allowedVlans: 112,234
+      channelGroup: 1
+      ipaddress: null
+      lacpEnabled: true
+      mlagEnabled: true
+      mode: trunk
+      name: Host POD1
+      nativeVlanId: 1
+      phoneVlanId: 1
+      portFastEnabled: true
+      profileDescription: $1
+      speed: null
