@@ -12,7 +12,7 @@ At the end of this lab, `POD1` and `POD2` will share the same underlay and form 
 
     <details close>
     <summary>Solution: Don't cheat, use your brain and RTFM</summary>
-        One possible solution is accessible [here](https://github.com/arista-netdevops-community/avd-toi/blob/solution/group_vars/FABRIC.yml#L57).
+        One possible solution is accessible  <a href="https://github.com/arista-netdevops-community/avd-toi/blob/solution/group_vars/FABRIC.yml#L57">here</a>.
     </details>
 
 3. Run the playbook `build.yml` with the command `ansible-playbook build.yml`. Verify the configurations in `intended/configs`.
@@ -20,7 +20,7 @@ At the end of this lab, `POD1` and `POD2` will share the same underlay and form 
 
     <details close>
     <summary>Solution: Don't cheat, use your brain and RTFM</summary>
-        One possible solution is accessible [here](https://github.com/arista-netdevops-community/avd-toi/blob/solution/host_vars/s1-brdr1.yml).
+        One possible solution is accessible  <a href="https://github.com/arista-netdevops-community/avd-toi/blob/solution/host_vars/s1-brdr1.yml">here</a>.
     </details>
 
 5. Run the playbook `build.yml` with the command `ansible-playbook build.yml`. Verify the configurations in `intended/configs`.
@@ -28,8 +28,9 @@ At the end of this lab, `POD1` and `POD2` will share the same underlay and form 
 
     <details close>
     <summary>Solution: Don't cheat, use your brain and RTFM</summary>
-        One possible solution is accessible [here](https://github.com/arista-netdevops-community/avd-toi/blob/solution/host_vars).
+        One possible solution is accessible  <a href="https://github.com/arista-netdevops-community/avd-toi/blob/solution/host_vars">here</a>.
     </details>
+
 7. Run the playbook `build.yml` with the command `ansible-playbook build.yml`. Verify the configurations in `intended/configs`.
 8. Run the playbook `deploy.yml` with the command `ansible-playbook deploy.yml`.
 9. Go to the CloudVision instance or your Arista Test Drive lab and open the `Provisioning` menu.
