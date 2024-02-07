@@ -2,7 +2,7 @@
 
 ### Description
 
-In this lab, Arista Validated Design to generate `POD2` underlay and overlay configuration and CloudVision to deploy it.
+In this lab, we will use Arista Validated Design (AVD) to generate `POD2` underlay and overlay configuration and CloudVision to deploy it.
 This time, `eos_designs` variables need to be created.
 At the end of this lab, `POD1` and `POD2` will be 2 separate EVPN domains: all leaf can only reach the `Loopback0` of other leaves of their respective pods.
 

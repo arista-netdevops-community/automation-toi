@@ -2,14 +2,14 @@
 
 ### Description
 
-In this lab, we will configure L2 EVPN Services and the corresponding VLANs on the leaf server ports:
-- `VLAN 134` is local to `POD1`.
-- `VLAN 234` is local to `POD2`.
-- `VLAN 112` is stretched across `POD1` and `POD2`.
-- `s1-host1` and `s1-host2` have Layer 3 interfaces in `VLAN 134` and `VLAN 112`.
-- `s2-host1` and `s2-host2` have Layer 3 interfaces in `VLAN 234` and `VLAN 112`.
+In this lab, we will configure L2 and L3 EVPN Services and the corresponding VLANs on the leaf server ports:
+- `VLAN 134` is local to `POD1` and part of VRF `Blue`. The Anycast Gateway in this VLAN is `10.111.134.1/24`.
+- `VLAN 234` is local to `POD2` and part of VRF `Blue`. The Anycast Gateway in this VLAN is `10.222.234.1/24`.
+- `VLAN 112` is a L2VNI stretched across `POD1` and `POD2`.
+- `s1-host1` and `s1-host2` have Layer 3 interfaces in `VLAN 134` and `VLAN 112`. A static route to reach `VLAN 234` needs to be created on these hosts.
+- `s2-host1` and `s2-host2` have Layer 3 interfaces in `VLAN 234` and `VLAN 112`. A static route to reach `VLAN 134` needs to be created on these hosts.
 
-At the end if this lab, hosts will be able to ping each other using the VLANs described above.
+At the end if this lab, hosts will be able to ping each other using `VLAN 112` (VXLAN bridged traffic) but also through `VLAN 134` and `VLAN 234` (VXLAN routed traffic).
 
 ### Instructions
 
