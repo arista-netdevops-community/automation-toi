@@ -9,7 +9,7 @@ At the end of this lab, `POD1` and `POD2` will be 2 separate EVPN domains: all l
 ### Instructions
 
 1. Go to the folder `/home/coder/project/persist/avd-toi`.
-2. Open `inventory.yml` and uncomment all lines in the file.
+2. Open `inventory.yml` and **uncomment** all lines in the file.
 3. Create `group_vars/POD2.yml` and fill it with required information.
     
     > Use `group_vars/POD1.yml` as example.
