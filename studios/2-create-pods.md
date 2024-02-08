@@ -9,10 +9,6 @@ When using CloudVision Studios, devices needs to be registered. Also, some studi
 
 In this lab, we will configure 2 distinct VXLAN-EVPN pods using the `L3 Leaf-Spine Fabric` studio. We will consider these pods to be in the same fabric split over 2 sites (see diagram). At the end of this lab, `POD1` and `POD2` will be 2 separate EVPN domains: all leaf can only reach the `Loopback0` of other leaves of their respective pods.
 
-<p align="center">
-<img src="../images/Brdr.png"  width="666" height="378">
-</p>
-
 ### Instructions
 
 #### Define the Studios inventory and topology
@@ -79,60 +75,58 @@ In this lab, we will configure 2 distinct VXLAN-EVPN pods using the `L3 Leaf-Spi
 12. Review the configuration changes for each device and click on `Submit Workspace` then `View Change Control`.
 13. You will be taken to the `Change Control` tab in the newly created change control. Review, Approve and Execute the change control.
 14. `POD1` and `POD2` devices are now configured as independant EVPN domains.
-15. Connect to a spine and check the underlay and EVPN bgp sessions.
+15. Connect to a spine and check the underlay and EVPN BGP sessions:
+   On `POD1`:
 
-On `POD1`:
+   ```cli
+   s1-spine1#show ip bgp summary
+   BGP summary information for VRF default
+   Router identifier 172.16.1.1, local AS number 65100
+   Neighbor Status Codes: m - Under maintenance
+   Description              Neighbor  V AS           MsgRcvd   MsgSent  InQ OutQ  Up/Down State   PfxRcd PfxAcc
+   s1-leaf1_Ethernet2       10.0.0.1  4 65101             10        11    0    0 00:01:25 Estab   3      3
+   s1-leaf2_Ethernet2       10.0.0.5  4 65101             13        11    0    0 00:01:25 Estab   3      3
+   s1-leaf3_Ethernet2       10.0.0.9  4 65102              9        12    0    0 00:01:25 Estab   3      3
+   s1-leaf4_Ethernet2       10.0.0.13 4 65102             10        11    0    0 00:01:24 Estab   3      3
+   s1-brdr1_Ethernet2       10.0.0.17 4 65103             10        11    0    0 00:01:24 Estab   3      3
+   s1-brdr2_Ethernet2       10.0.0.21 4 65103             10        11    0    0 00:01:24 Estab   3      3
+   s1-spine1#show bgp evpn summary
+   BGP summary information for VRF default
+   Router identifier 172.16.1.1, local AS number 65100
+   Neighbor Status Codes: m - Under maintenance
+   Description              Neighbor   V AS           MsgRcvd   MsgSent  InQ OutQ  Up/Down State   PfxRcd PfxAcc
+   s1-leaf1                 172.16.0.1 4 65101              5         5    0    0 00:01:29 Estab   0      0
+   s1-leaf2                 172.16.0.2 4 65101              5         5    0    0 00:01:29 Estab   0      0
+   s1-leaf3                 172.16.0.3 4 65102              5         5    0    0 00:01:30 Estab   0      0
+   s1-leaf4                 172.16.0.4 4 65102              5         5    0    0 00:01:25 Estab   0      0
+   s1-brdr1                 172.16.0.5 4 65103              5         5    0    0 00:01:29 Estab   0      0
+   s1-brdr2                 172.16.0.6 4 65103              5         5    0    0 00:01:29 Estab   0      0
+   s1-spine1#
+   ```
+   On `POD2`:
 
-```cli
-s1-spine1#show ip bgp summary
-BGP summary information for VRF default
-Router identifier 172.16.1.1, local AS number 65100
-Neighbor Status Codes: m - Under maintenance
-  Description              Neighbor  V AS           MsgRcvd   MsgSent  InQ OutQ  Up/Down State   PfxRcd PfxAcc
-  s1-leaf1_Ethernet2       10.0.0.1  4 65101             10        11    0    0 00:01:25 Estab   3      3
-  s1-leaf2_Ethernet2       10.0.0.5  4 65101             13        11    0    0 00:01:25 Estab   3      3
-  s1-leaf3_Ethernet2       10.0.0.9  4 65102              9        12    0    0 00:01:25 Estab   3      3
-  s1-leaf4_Ethernet2       10.0.0.13 4 65102             10        11    0    0 00:01:24 Estab   3      3
-  s1-brdr1_Ethernet2       10.0.0.17 4 65103             10        11    0    0 00:01:24 Estab   3      3
-  s1-brdr2_Ethernet2       10.0.0.21 4 65103             10        11    0    0 00:01:24 Estab   3      3
-s1-spine1#show bgp evpn summary
-BGP summary information for VRF default
-Router identifier 172.16.1.1, local AS number 65100
-Neighbor Status Codes: m - Under maintenance
-  Description              Neighbor   V AS           MsgRcvd   MsgSent  InQ OutQ  Up/Down State   PfxRcd PfxAcc
-  s1-leaf1                 172.16.0.1 4 65101              5         5    0    0 00:01:29 Estab   0      0
-  s1-leaf2                 172.16.0.2 4 65101              5         5    0    0 00:01:29 Estab   0      0
-  s1-leaf3                 172.16.0.3 4 65102              5         5    0    0 00:01:30 Estab   0      0
-  s1-leaf4                 172.16.0.4 4 65102              5         5    0    0 00:01:25 Estab   0      0
-  s1-brdr1                 172.16.0.5 4 65103              5         5    0    0 00:01:29 Estab   0      0
-  s1-brdr2                 172.16.0.6 4 65103              5         5    0    0 00:01:29 Estab   0      0
-s1-spine1#
-```
-
-On `POD1`:
-
-```cli
-s2-spine1#show ip bgp summary
-BGP summary information for VRF default
-Router identifier 172.16.2.1, local AS number 65200
-Neighbor Status Codes: m - Under maintenance
-  Description              Neighbor  V AS           MsgRcvd   MsgSent  InQ OutQ  Up/Down State   PfxRcd PfxAcc
-  s2-leaf1_Ethernet2       10.0.0.1  4 65201             12        16    0    0 00:05:21 Estab   3      3
-  s2-leaf2_Ethernet2       10.0.0.5  4 65201             15        15    0    0 00:05:21 Estab   3      3
-  s2-leaf3_Ethernet2       10.0.0.9  4 65202             13        15    0    0 00:05:20 Estab   3      3
-  s2-leaf4_Ethernet2       10.0.0.13 4 65202             12        16    0    0 00:05:20 Estab   3      3
-  s2-brdr1_Ethernet2       10.0.0.17 4 65203             14        16    0    0 00:05:21 Estab   3      3
-  s2-brdr2_Ethernet2       10.0.0.21 4 65203             14        16    0    0 00:05:20 Estab   3      3
-s2-spine1#show bgp evpn summary
-BGP summary information for VRF default
-Router identifier 172.16.2.1, local AS number 65200
-Neighbor Status Codes: m - Under maintenance
-  Description              Neighbor   V AS           MsgRcvd   MsgSent  InQ OutQ  Up/Down State   PfxRcd PfxAcc
-  s2-leaf1                 172.16.0.1 4 65201             10        10    0    0 00:05:28 Estab   0      0
-  s2-leaf2                 172.16.0.2 4 65201             10        10    0    0 00:05:27 Estab   0      0
-  s2-leaf3                 172.16.0.3 4 65202             11        11    0    0 00:05:27 Estab   0      0
-  s2-leaf4                 172.16.0.4 4 65202             11        11    0    0 00:05:27 Estab   0      0
-  s2-brdr1                 172.16.0.5 4 65203             10        10    0    0 00:05:26 Estab   0      0
-  s2-brdr2                 172.16.0.6 4 65203             10        10    0    0 00:05:27 Estab   0      0
-s2-spine1#
-```
+   ```cli
+   s2-spine1#show ip bgp summary
+   BGP summary information for VRF default
+   Router identifier 172.16.2.1, local AS number 65200
+   Neighbor Status Codes: m - Under maintenance
+   Description              Neighbor  V AS           MsgRcvd   MsgSent  InQ OutQ  Up/Down State   PfxRcd PfxAcc
+   s2-leaf1_Ethernet2       10.0.0.1  4 65201             12        16    0    0 00:05:21 Estab   3      3
+   s2-leaf2_Ethernet2       10.0.0.5  4 65201             15        15    0    0 00:05:21 Estab   3      3
+   s2-leaf3_Ethernet2       10.0.0.9  4 65202             13        15    0    0 00:05:20 Estab   3      3
+   s2-leaf4_Ethernet2       10.0.0.13 4 65202             12        16    0    0 00:05:20 Estab   3      3
+   s2-brdr1_Ethernet2       10.0.0.17 4 65203             14        16    0    0 00:05:21 Estab   3      3
+   s2-brdr2_Ethernet2       10.0.0.21 4 65203             14        16    0    0 00:05:20 Estab   3      3
+   s2-spine1#show bgp evpn summary
+   BGP summary information for VRF default
+   Router identifier 172.16.2.1, local AS number 65200
+   Neighbor Status Codes: m - Under maintenance
+   Description              Neighbor   V AS           MsgRcvd   MsgSent  InQ OutQ  Up/Down State   PfxRcd PfxAcc
+   s2-leaf1                 172.16.0.1 4 65201             10        10    0    0 00:05:28 Estab   0      0
+   s2-leaf2                 172.16.0.2 4 65201             10        10    0    0 00:05:27 Estab   0      0
+   s2-leaf3                 172.16.0.3 4 65202             11        11    0    0 00:05:27 Estab   0      0
+   s2-leaf4                 172.16.0.4 4 65202             11        11    0    0 00:05:27 Estab   0      0
+   s2-brdr1                 172.16.0.5 4 65203             10        10    0    0 00:05:26 Estab   0      0
+   s2-brdr2                 172.16.0.6 4 65203             10        10    0    0 00:05:27 Estab   0      0
+   s2-spine1#
+   ```

@@ -8,6 +8,10 @@ At the end of this lab, `POD1` will be a single EVPN domain.
 
 This lab is refering to the AVD project versioned [here](https://github.com/arista-netdevops-community/avd-toi)
 
+<p align="center">
+<img src="../images/Pod1.png"  width="512" height="354">
+</p>
+
 ### Instructions
 
 1. Go to the folder `/home/coder/project/persist/avd-toi`.
@@ -25,3 +29,29 @@ This lab is refering to the AVD project versioned [here](https://github.com/aris
 11. Go to the `Tasks` tab, select the tasks that have been created by the playbook and create a change control. At this point, you can select the Parallel arrangement to have the tasks executed in parallel within the change control.
 12. You will be taken to the `Change Control` tab in the newly created change control. You can rename the `Change Control` to give it a meaningful name. Review, Approve and Execute the change control.
 13. When the change control is completed, underlay and overlay of `POD1` will be configured. You can eventually access the devices via SSH and run the `show running-config` command to verify the configuration.
+14. Connect to a spine and check the underlay and EVPN BGP sessions:
+   ```cli
+   s1-spine1#show ip bgp summary
+   BGP summary information for VRF default
+   Router identifier 172.16.1.1, local AS number 65100
+   Neighbor Status Codes: m - Under maintenance
+   Description              Neighbor  V AS           MsgRcvd   MsgSent  InQ OutQ  Up/Down State   PfxRcd PfxAcc
+   s1-leaf1_Ethernet2       10.0.0.1  4 65101             10        11    0    0 00:01:25 Estab   3      3
+   s1-leaf2_Ethernet2       10.0.0.5  4 65101             13        11    0    0 00:01:25 Estab   3      3
+   s1-leaf3_Ethernet2       10.0.0.9  4 65102              9        12    0    0 00:01:25 Estab   3      3
+   s1-leaf4_Ethernet2       10.0.0.13 4 65102             10        11    0    0 00:01:24 Estab   3      3
+   s1-brdr1_Ethernet2       10.0.0.17 4 65103             10        11    0    0 00:01:24 Estab   3      3
+   s1-brdr2_Ethernet2       10.0.0.21 4 65103             10        11    0    0 00:01:24 Estab   3      3
+   s1-spine1#show bgp evpn summary
+   BGP summary information for VRF default
+   Router identifier 172.16.1.1, local AS number 65100
+   Neighbor Status Codes: m - Under maintenance
+   Description              Neighbor   V AS           MsgRcvd   MsgSent  InQ OutQ  Up/Down State   PfxRcd PfxAcc
+   s1-leaf1                 172.16.0.1 4 65101              5         5    0    0 00:01:29 Estab   0      0
+   s1-leaf2                 172.16.0.2 4 65101              5         5    0    0 00:01:29 Estab   0      0
+   s1-leaf3                 172.16.0.3 4 65102              5         5    0    0 00:01:30 Estab   0      0
+   s1-leaf4                 172.16.0.4 4 65102              5         5    0    0 00:01:25 Estab   0      0
+   s1-brdr1                 172.16.0.5 4 65103              5         5    0    0 00:01:29 Estab   0      0
+   s1-brdr2                 172.16.0.6 4 65103              5         5    0    0 00:01:29 Estab   0      0
+   s1-spine1#
+   ```

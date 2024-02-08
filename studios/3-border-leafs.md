@@ -5,30 +5,35 @@
 In this lab, we will configure Layer 3 point-to-point links between `s1-brdr1` and `s2-brdr1` and between `s1-brdr2` and `s2-brdr2`, create underlay eBGP sessions on these links and EVPN overlay sessions to extend the EVPN domains.
 At the end of this lab, `POD1` and `POD2` will share the same underlay and form a single EVPN domain: all `Loopback0` interfaces must be reachable from any leafs.
 
+<p align="center">
+<img src="../images/Brdr.png"  width="666" height="378">
+</p>
+
+<p align="center">
+<img src="../images/BrdrConnections.png"  width="600" height="300">
+</p>
+
 ### Instructions
 
-1. Connect first to a border leaf and check the underlay and EVPN BGP sessions.
-   
-```cli
-s1-brdr2#show ip bgp summary
-BGP summary information for VRF default
-Router identifier 172.16.0.6, local AS number 65103
-Neighbor Status Codes: m - Under maintenance
-  Description              Neighbor    V AS           MsgRcvd   MsgSent  InQ OutQ  Up/Down State   PfxRcd PfxAcc
-  s1-spine1_Ethernet8      10.0.0.20   4 65100             22        21    0    0 00:10:33 Estab   7      7
-  s1-spine2_Ethernet8      10.0.0.22   4 65100             22        19    0    0 00:10:33 Estab   7      7
-  s1-brdr1                 169.254.0.0 4 65103             20        21    0    0 00:10:30 Estab   10     10
-s1-brdr2#
-show bgp evpn summary
-BGP summary information for VRF default
-Router identifier 172.16.0.6, local AS number 65103
-Neighbor Status Codes: m - Under maintenance
-  Description              Neighbor   V AS           MsgRcvd   MsgSent  InQ OutQ  Up/Down State   PfxRcd PfxAcc
-  s1-spine1                172.16.1.1 4 65100             16        16    0    0 00:10:38 Estab   0      0
-  s1-spine2                172.16.1.2 4 65100             16        16    0    0 00:10:39 Estab   0      0
-s1-brdr2#
-```
-
+1. Connect first to a border leaf and check the underlay and EVPN BGP sessions:
+   ```cli
+   s1-brdr2#show ip bgp summary
+   BGP summary information for VRF default
+   Router identifier 172.16.0.6, local AS number 65103
+   Neighbor Status Codes: m - Under maintenance
+   Description              Neighbor    V AS           MsgRcvd   MsgSent  InQ OutQ  Up/Down State   PfxRcd PfxAcc
+   s1-spine1_Ethernet8      10.0.0.20   4 65100             22        21    0    0 00:10:33 Estab   7      7
+   s1-spine2_Ethernet8      10.0.0.22   4 65100             22        19    0    0 00:10:33 Estab   7      7
+   s1-brdr1                 169.254.0.0 4 65103             20        21    0    0 00:10:30 Estab   10     10
+   s1-brdr2#show bgp evpn summary
+   BGP summary information for VRF default
+   Router identifier 172.16.0.6, local AS number 65103
+   Neighbor Status Codes: m - Under maintenance
+   Description              Neighbor   V AS           MsgRcvd   MsgSent  InQ OutQ  Up/Down State   PfxRcd PfxAcc
+   s1-spine1                172.16.1.1 4 65100             16        16    0    0 00:10:38 Estab   0      0
+   s1-spine2                172.16.1.2 4 65100             16        16    0    0 00:10:39 Estab   0      0
+   s1-brdr2#
+   ```
 2. Go to `Provisioning` menu and access the `Studios` tab. Click on the `Create Workspace` button to create a workspace and give it a meaningful name like `Create POD1 and POD2 border leafs configuration`.
 3. Click on the `Enterprise Routing` studio, add a network called `Datacenter1-POD1_POD2`, go to the network configuration by clicking on the arrow and assign the devices `s1-brdr1`, `s1-brdr2`, `s2-brdr1` and `s2-brdr2` to this network using the `Assigned Devices` field on at the top of the screen.
 4. Next to the `Global Underlay Routing` section, modify the following configuration:
@@ -66,26 +71,23 @@ s1-brdr2#
 16. Review the configuration changes for each device and click on `Submit Workspace` then `View Change Control`.
 17. You will be taken to the `Change Control` tab in the newly created change control. Review, Approve and Execute the change control.
 18. The border leafs are now configured to extend and EVPN domain services between `POD1` and `POD2`.
-19. Connect again to a border leaf and check the underlay and EVPN BGP sessions to check the new sessions between the border leafs.
-
-```cli
-s1-brdr2#show ip bgp summary
-BGP summary information for VRF default
-Router identifier 172.16.1.8, local AS number 65103
-Neighbor Status Codes: m - Under maintenance
-  Description              Neighbor    V AS           MsgRcvd   MsgSent  InQ OutQ  Up/Down State   PfxRcd PfxAcc
-  s1-spine1_Ethernet8      10.0.0.20   4 65100            595       599    0    0 01:30:09 Estab   7      7
-  s1-spine2_Ethernet8      10.0.0.22   4 65100            592       590    0    0 01:30:09 Estab   7      7
-                           10.255.0.3  4 65203             47        53    0    0 00:31:34 Estab   11     11
-  s1-brdr1                 169.254.0.0 4 65103            591       577    0    0 01:30:09 Estab   21     21
-s1-brdr2#
-s1-brdr2#show bgp evpn summary
-BGP summary information for VRF default
-Router identifier 172.16.1.8, local AS number 65103
-Neighbor Status Codes: m - Under maintenance
-  Description              Neighbor   V AS           MsgRcvd   MsgSent  InQ OutQ  Up/Down State   PfxRcd PfxAcc
-  s1-spine1                172.16.1.1 4 65100            561       560    0    0 01:30:14 Estab   0      0
-  s1-spine2                172.16.1.2 4 65100            560       560    0    0 01:30:13 Estab   0      0
-                           172.16.2.8 4 65203             61        61    0    0 00:21:22 Estab   0      0
-s1-brdr2#
-```
+19. Connect again to a border leaf and check the underlay and EVPN BGP sessions to check the new sessions between the border leafs:
+   ```cli
+   s1-brdr2#show ip bgp summary
+   BGP summary information for VRF default
+   Router identifier 172.16.1.8, local AS number 65103
+   Neighbor Status Codes: m - Under maintenance
+   Description              Neighbor    V AS           MsgRcvd   MsgSent  InQ OutQ  Up/Down State   PfxRcd PfxAcc
+   s1-spine1_Ethernet8      10.0.0.20   4 65100            595       599    0    0 01:30:09 Estab   7      7
+   s1-spine2_Ethernet8      10.0.0.22   4 65100            592       590    0    0 01:30:09 Estab   7      7
+                              10.255.0.3  4 65203             47        53    0    0 00:31:34 Estab   11     11
+   s1-brdr1                 169.254.0.0 4 65103            591       577    0    0 01:30:09 Estab   21     21
+   s1-brdr2#show bgp evpn summary
+   BGP summary information for VRF default
+   Router identifier 172.16.1.8, local AS number 65103
+   Neighbor Status Codes: m - Under maintenance
+   Description              Neighbor   V AS           MsgRcvd   MsgSent  InQ OutQ  Up/Down State   PfxRcd PfxAcc
+   s1-spine1                172.16.1.1 4 65100            561       560    0    0 01:30:14 Estab   0      0
+   s1-spine2                172.16.1.2 4 65100            560       560    0    0 01:30:13 Estab   0      0
+                              172.16.2.8 4 65203             61        61    0    0 00:21:22 Estab   0      0
+   ```
