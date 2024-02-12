@@ -1,7 +1,5 @@
 # Lab 1: Staging
 
-> TODO: configuration validation process and `show logging`.
-
 ### Description
 
 In this lab, we will use **`static configlets`** to stage the Arista Test Drive topology for the next lab.

@@ -15,10 +15,6 @@ The 2 pods are interconnected with one link between `s1-brdr1` and `s2-brdr1` an
 
 ## Table of contents
 
-- [Naming scheme, addressing and numbering](#naming-scheme-addressing-and-numbering)
-   - [Loopback addresses](#loopback-addresses)
-   - [Point-to-point links](#point-to-point-links)
-   - [BGP AS numbering](#bgp-as-numbering)
 - [CloudVision Studios](studios)
   - [Lab 1: Staging](studios/1-staging.md)
   - [Lab 2: Create 2 VXLAN-EVPN pods](studios/2-create-pods.md)
