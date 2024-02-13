@@ -14,7 +14,7 @@ In this lab, we will configure 2 distinct VXLAN-EVPN pods using the `L3 Leaf-Spi
 #### Define the Studios inventory and topology
 
 1. Go to `Provisioning` menu and access the `Studios` tab. Click on the `Create Workspace` button to create a workspace and give it a meaningful name like `Add POD1 and POD2 devices to Studios`.
-2. Click on the `Inventory and Topology` studio, go to the `Network Updates` tab and select the updates for all the devices except for `s1-core1`, `s1-core2`, `s2-core1`, `s2-core2`, `s1-host1`, `s1-host2`, `s2-host1` and `s2-host2` that will not be managed by Studios. Click on `Accept Updates`.
+2. Click on the `Inventory and Topology` studio, go to the `Network Updates` tab and select the updates for all the devices **except** for `s1-core1`, `s1-core2`, `s2-core1`, `s2-core2`, `s1-host1`, `s1-host2`, `s2-host1` and `s2-host2` that will not be managed by Studios. Click on `Accept Updates`.
 3. Since we consider that `s1-brdr1` is directly connected to `s2-brdr1` and `s1-brdr2` is directly connected to `s2-brdr2`, we need to go reflect this in the topology. Go to the `Registered Devices` tab and click on `View` under the `Interfaces` column for the device `s1-brdr1`. Remove the `Ethernet5` interface and modify the neighbor of `Ethernet4` to be `s2-brdr1` with interface `Ethernet4`.
 4. Repeat step 3 for devices `s1-brdr2`, `s2-brdr1` and `s2-brdr2`. Refer to the diagram to get the interfaces to be removed and the ones to be modified for each device.
 
