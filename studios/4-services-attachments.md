@@ -16,7 +16,7 @@ At the end if this lab, hosts will be able to ping each other using the VLANs de
 #### EVPN Services
 
 1. Go to the `Provisioning` menu and access the `Studios` tab. Click on the `Create Workspace` button to create a workspace and give it a meaningful name like `Create VLAN 112, 134 and 234`.
-2. Click on the `EVPN Services` studio. Only assign leaves to this Studio using the query `Role:Leaf` in the `Device Selection` section.
+2. Click on the `EVPN Services` studio. Only assign leaves to this Studio using the query `Role:Leaf` in the `Device Selection` section (use `Tag Query`).
 3. Add a tenant called `Tenant-A`, go to the tenant configuration by clicking on the arrow.
 4. Create 3 VLANs: `112`, `134` and `234`.
 5. In the `VLAN 112` configuration, modify the following configuration:
@@ -32,12 +32,12 @@ At the end if this lab, hosts will be able to ping each other using the VLANs de
    - VLAN must be `Bridged`.
    - `VTEPs` must have the value `Role:Leaf AND DC-Pod:POD2` to select only VTEPs in `POD2`.
 8. Click on the `Review Workspace` button on the top right corner. You will be taken to the `Workspace` screen where the inputs will be validated, the configlet generated and the configuration validated by the devices.
-9. Review the configuration changes for each device but do not submit the workspace yet, we will also include the leaf server ports configuration in the change control.
+9. Review the configuration changes for each device but **do not submit** the workspace yet, we will also include the leaf server ports configuration in the change control.
 
 #### Leaf Server Ports
 
 1. Go to the `Provisioning` menu and access the `Studios` tab.
-2. Click on the `Interface Configuration` studio. Only assign leaves to this Studio using the query `Role:Leaf` in the `Device Selection` section.
+2. Click on the `Interface Configuration` studio. Only assign leaves to this Studio using the query `Role:Leaf` in the `Device Selection` section (use `Tag Query`).
 3. Create 2 `Profiles` named `Host POD1` and `Host POD2`. Since we have 4 hosts but only 2 different port configurations, 2 profiles will suffice.
 4. In the `Host POD1` configuration, modify the following configuration:
    - `Profile Description` must have the value `$1` to reuse the interface description. When defining a profile per host, it is a good practice to set the attached host name here as this description will be used on the Port-Channel interface.
