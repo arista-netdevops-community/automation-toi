@@ -49,11 +49,11 @@ At the end of this lab, `POD1` and `POD2` will be 2 separate EVPN domains: all l
    Router identifier 172.16.2.1, local AS number 65200
    Neighbor Status Codes: m - Under maintenance
    Description              Neighbor   V AS           MsgRcvd   MsgSent  InQ OutQ  Up/Down State   PfxRcd PfxAcc
-   s2-leaf1                 172.16.0.1 4 65201             10        10    0    0 00:05:28 Estab   0      0
-   s2-leaf2                 172.16.0.2 4 65201             10        10    0    0 00:05:27 Estab   0      0
-   s2-leaf3                 172.16.0.3 4 65202             11        11    0    0 00:05:27 Estab   0      0
-   s2-leaf4                 172.16.0.4 4 65202             11        11    0    0 00:05:27 Estab   0      0
-   s2-brdr1                 172.16.0.5 4 65203             10        10    0    0 00:05:26 Estab   0      0
-   s2-brdr2                 172.16.0.6 4 65203             10        10    0    0 00:05:27 Estab   0      0
+   s2-leaf1                 172.16.2.1 4 65201             10        10    0    0 00:05:28 Estab   0      0
+   s2-leaf2                 172.16.2.2 4 65201             10        10    0    0 00:05:27 Estab   0      0
+   s2-leaf3                 172.16.2.3 4 65202             11        11    0    0 00:05:27 Estab   0      0
+   s2-leaf4                 172.16.2.4 4 65202             11        11    0    0 00:05:27 Estab   0      0
+   s2-brdr1                 172.16.2.5 4 65203             10        10    0    0 00:05:26 Estab   0      0
+   s2-brdr2                 172.16.2.6 4 65203             10        10    0    0 00:05:27 Estab   0      0
    s2-spine1#
    ```

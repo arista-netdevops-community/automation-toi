@@ -47,11 +47,11 @@ This lab is refering to the AVD project versioned [here](https://github.com/aris
    Router identifier 172.16.1.1, local AS number 65100
    Neighbor Status Codes: m - Under maintenance
    Description              Neighbor   V AS           MsgRcvd   MsgSent  InQ OutQ  Up/Down State   PfxRcd PfxAcc
-   s1-leaf1                 172.16.0.1 4 65101              5         5    0    0 00:01:29 Estab   0      0
-   s1-leaf2                 172.16.0.2 4 65101              5         5    0    0 00:01:29 Estab   0      0
-   s1-leaf3                 172.16.0.3 4 65102              5         5    0    0 00:01:30 Estab   0      0
-   s1-leaf4                 172.16.0.4 4 65102              5         5    0    0 00:01:25 Estab   0      0
-   s1-brdr1                 172.16.0.5 4 65103              5         5    0    0 00:01:29 Estab   0      0
-   s1-brdr2                 172.16.0.6 4 65103              5         5    0    0 00:01:29 Estab   0      0
+   s1-leaf1                 172.16.1.1 4 65101              5         5    0    0 00:01:29 Estab   0      0
+   s1-leaf2                 172.16.1.2 4 65101              5         5    0    0 00:01:29 Estab   0      0
+   s1-leaf3                 172.16.1.3 4 65102              5         5    0    0 00:01:30 Estab   0      0
+   s1-leaf4                 172.16.1.4 4 65102              5         5    0    0 00:01:25 Estab   0      0
+   s1-brdr1                 172.16.1.5 4 65103              5         5    0    0 00:01:29 Estab   0      0
+   s1-brdr2                 172.16.1.6 4 65103              5         5    0    0 00:01:29 Estab   0      0
    s1-spine1#
    ```

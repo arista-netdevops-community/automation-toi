@@ -95,12 +95,12 @@ In this lab, we will configure 2 distinct VXLAN-EVPN pods using the `L3 Leaf-Spi
    Router identifier 172.16.1.1, local AS number 65100
    Neighbor Status Codes: m - Under maintenance
    Description              Neighbor   V AS           MsgRcvd   MsgSent  InQ OutQ  Up/Down State   PfxRcd PfxAcc
-   s1-leaf1                 172.16.0.1 4 65101              5         5    0    0 00:01:29 Estab   0      0
-   s1-leaf2                 172.16.0.2 4 65101              5         5    0    0 00:01:29 Estab   0      0
-   s1-leaf3                 172.16.0.3 4 65102              5         5    0    0 00:01:30 Estab   0      0
-   s1-leaf4                 172.16.0.4 4 65102              5         5    0    0 00:01:25 Estab   0      0
-   s1-brdr1                 172.16.0.5 4 65103              5         5    0    0 00:01:29 Estab   0      0
-   s1-brdr2                 172.16.0.6 4 65103              5         5    0    0 00:01:29 Estab   0      0
+   s1-leaf1                 172.16.1.1 4 65101              5         5    0    0 00:01:29 Estab   0      0
+   s1-leaf2                 172.16.1.2 4 65101              5         5    0    0 00:01:29 Estab   0      0
+   s1-leaf3                 172.16.1.3 4 65102              5         5    0    0 00:01:30 Estab   0      0
+   s1-leaf4                 172.16.1.4 4 65102              5         5    0    0 00:01:25 Estab   0      0
+   s1-brdr1                 172.16.1.5 4 65103              5         5    0    0 00:01:29 Estab   0      0
+   s1-brdr2                 172.16.1.6 4 65103              5         5    0    0 00:01:29 Estab   0      0
    s1-spine1#
    ```
    On `POD2`:
@@ -122,11 +122,11 @@ In this lab, we will configure 2 distinct VXLAN-EVPN pods using the `L3 Leaf-Spi
    Router identifier 172.16.2.1, local AS number 65200
    Neighbor Status Codes: m - Under maintenance
    Description              Neighbor   V AS           MsgRcvd   MsgSent  InQ OutQ  Up/Down State   PfxRcd PfxAcc
-   s2-leaf1                 172.16.0.1 4 65201             10        10    0    0 00:05:28 Estab   0      0
-   s2-leaf2                 172.16.0.2 4 65201             10        10    0    0 00:05:27 Estab   0      0
-   s2-leaf3                 172.16.0.3 4 65202             11        11    0    0 00:05:27 Estab   0      0
-   s2-leaf4                 172.16.0.4 4 65202             11        11    0    0 00:05:27 Estab   0      0
-   s2-brdr1                 172.16.0.5 4 65203             10        10    0    0 00:05:26 Estab   0      0
-   s2-brdr2                 172.16.0.6 4 65203             10        10    0    0 00:05:27 Estab   0      0
+   s2-leaf1                 172.16.2.1 4 65201             10        10    0    0 00:05:28 Estab   0      0
+   s2-leaf2                 172.16.2.2 4 65201             10        10    0    0 00:05:27 Estab   0      0
+   s2-leaf3                 172.16.2.3 4 65202             11        11    0    0 00:05:27 Estab   0      0
+   s2-leaf4                 172.16.2.4 4 65202             11        11    0    0 00:05:27 Estab   0      0
+   s2-brdr1                 172.16.2.5 4 65203             10        10    0    0 00:05:26 Estab   0      0
+   s2-brdr2                 172.16.2.6 4 65203             10        10    0    0 00:05:27 Estab   0      0
    s2-spine1#
    ```
