@@ -15,8 +15,8 @@ then we will shutdown Ethernet interfaces in the core network to only have 2 lin
 3. On the `Port-Channel1.112` interface, change the `10.111.112.201/24` IP to `10.111.112.101/24`. Change the configlet name to `EVPN-SINGLE_s1-host1-updated` (this is important to not have this change overwritten by the Arista Test Drive provisioning when the lab restarts).
 4. Similarly, edit the `EVPN-SINGLE_s1-host2` configlet and change the `10.111.112.202/24` IP to `10.111.112.102/24` on the `Port-Channel1.112` interface. Also update the configlet name to `EVPN-SINGLE_s1-host2-updated`.
 5. Go to the `Network Provisioning` tab, right click on `s1-host1` and select Manage -> Configlet. Assign the configlet `EVPN-SINGLE_s1-host1-updated` to the device, validate and save the changes.
-6. Repeat step 4 and assign configlet `EVPN-SINGLE_s1-host2-updated` to `s1-host2`
-7. Repeat step 4 and assign configlet `EVPN-SINGLE_s2-host1` to `s2-host1` and configlet `EVPN-SINGLE_s2-host2` to `s2-host2`.
+6. Repeat step 5 and assign configlet `EVPN-SINGLE_s1-host2-updated` to `s1-host2`
+7. Repeat step 5 and assign configlet `EVPN-SINGLE_s2-host1` to `s2-host1` and configlet `EVPN-SINGLE_s2-host2` to `s2-host2`.
 8. Click on the Save button on the  `Network Provisioning` tab:
    - `s1-host1` must have configlet `EVPN-SINGLE_s1-host1-updated` assigned
    - `s1-host2` must have configlet `EVPN-SINGLE_s1-host2-updated` assigned
