@@ -10,14 +10,21 @@ then we will shutdown Ethernet interfaces in the core network to only have 2 lin
 
 #### Hosts configuration
 
-1. Go to the `Provisioning` menu and access the `Configlets` tab. Click on the `EVPN-SINGLE_s1-host1` configlet and edit it using the button on the top right corner.
-2. On the `Port-Channel1.112` interface, change the `10.111.112.201/24` IP to `10.111.112.101/24`. Change the configlet name to `EVPN-SINGLE_s1-host1-updated` (this is important to not have this change overwritten by the Arista Test Drive provisioning when the lab restarts).
-3. Similarly, edit the `EVPN-SINGLE_s1-host2` configlet and change the `10.111.112.202/24` IP to `10.111.112.102/24` on the `Port-Channel1.112` interface. Also update the configlet name to `EVPN-SINGLE_s1-host2-updated`.
-4. Go to the `Network Provisioning` tab, right click on `s1-host1` and select Manage -> Configlet. Assign the configlet `EVPN-SINGLE_s1-host1-updated` to the device, validate and save the changes.
-5. Repeat step 4 and assign configlet `EVPN-SINGLE_s1-host2-updated` to `s1-host2`, configlet `EVPN-SINGLE_s2-host1` to `s2-host1` and configlet `EVPN-SINGLE_s2-host2` to `s2-host2`.
-6. Go to the `Tasks` tab, select the 4 tasks that have been created and create a change control. At this point, you can select the Parallel arrangement to have the 4 tasks executed in parallel within the change control.
-7. You will be taken to the `Change Control` tab in the newly created change control. You can rename the `Change Control` to give it a meaningful name. Review, Approve and Execute the change control.
-8. When the change control is completed, the 4 hosts will be configured. You can eventually access the hosts via SSH and run the `show running-config` command to verify the configuration.
+1. Open CloudVision
+2. Go to the `Provisioning` menu and access the `Configlets` tab. Click on the `EVPN-SINGLE_s1-host1` configlet and edit it using the button on the top right corner.
+3. On the `Port-Channel1.112` interface, change the `10.111.112.201/24` IP to `10.111.112.101/24`. Change the configlet name to `EVPN-SINGLE_s1-host1-updated` (this is important to not have this change overwritten by the Arista Test Drive provisioning when the lab restarts).
+4. Similarly, edit the `EVPN-SINGLE_s1-host2` configlet and change the `10.111.112.202/24` IP to `10.111.112.102/24` on the `Port-Channel1.112` interface. Also update the configlet name to `EVPN-SINGLE_s1-host2-updated`.
+5. Go to the `Network Provisioning` tab, right click on `s1-host1` and select Manage -> Configlet. Assign the configlet `EVPN-SINGLE_s1-host1-updated` to the device, validate and save the changes.
+6. Repeat step 4 and assign configlet `EVPN-SINGLE_s1-host2-updated` to `s1-host2`
+7. Repeat step 4 and assign configlet `EVPN-SINGLE_s2-host1` to `s2-host1` and configlet `EVPN-SINGLE_s2-host2` to `s2-host2`.
+8. Click on the Save button on the  `Network Provisioning` tab:
+   - `s1-host1` must have configlet `EVPN-SINGLE_s1-host1-updated` assigned
+   - `s1-host2` must have configlet `EVPN-SINGLE_s1-host2-updated` assigned
+   - `s2-host1` must have configlet `EVPN-SINGLE_s2-host1` assigned
+   - `s2-host2` must have configlet `EVPN-SINGLE_s2-host2` assigned
+9. Go to the `Tasks` tab, select the 4 tasks that have been created and create a change control. At this point, you can select the Parallel arrangement to have the 4 tasks executed in parallel within the change control.
+10. You will be taken to the `Change Control` tab in the newly created change control. You can rename the `Change Control` to give it a meaningful name. Review, Approve and Execute the change control.
+11. When the change control is completed, the 4 hosts will be configured. You can eventually access the hosts via SSH and run the `show running-config` command to verify the configuration.
 
 #### Core network configuration
 
